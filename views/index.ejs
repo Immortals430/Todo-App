@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/9774534ce3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+</head>
+<body>
+
+ 
+
+    <form action="/addlist" method="post">
+        <div class="flex vertical">
+
+            <!-- Header Section -->
+            <div id="header">
+                <h1>TODO App</h1>
+            </div> 
+
+            <!-- Description Section -->
+            <div class="container relative">
+                <input type="text" name="description" id="desc" class="resize no-border border" required placeholder="What do do today?">
+                <label for="desc" class="absolute">DESCRIPTION</label>
+            </div>
+
+            <!-- Category Section -->
+            <div class="flex container">
+                <div class="relative half-width">
+                    <select name="category" id="category"  class="resize no-border border" required>
+                        <option disabled selected class="placeholder">Choose a category</option>
+                        <option value="Personal">Personal</option>
+                        <option value="School">School</option>
+                        <option value="Work">Work</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label for="category" class="absolute" >CATEGORY</label>
+                </div>
+               
+                <!-- Date Section -->
+                <div class="relative half-width">
+                    <input type="date" name="Date" id="date" class="resize no-border border" required>
+                    <label for="date" class="absolute">DUE DATE</label>
+                </div>
+            </div>
+
+            <!-- ADD TASK Button -->
+            <div class="flex center no-border border">
+                <div class="btn-container ">
+                    <input type="submit" class="resize submit-btn btn" value="ADD TASK">
+                </div>
+            </div>
+        </div>    
+    </form>
+
+
+
+    <form action="/deletelist" method="post">
+        <div class="flex vertical center">
+            <!-- DELETE TASK Button -->
+            <div class="flex center no-border">
+                <div class="btn-container">
+                    <input type="submit" class="resize delete-btn btn" value="DELETE TASK">
+                </div>
+            </div>
+
+            <!-- Filter -->
+
+            <div class="filter">
+                <h4>&nbsp&nbsp Filter</h4>
+                <i class="fa-solid fa-caret-left" id="leftbtn"></i>
+                <a  id="filterlink" href="/filter/Personal">Personal</a>
+                <i class="fa-solid fa-caret-right" id="rightbtn"></i>
+            </div>
+
+
+            <!-- TASK List -->
+            <div class="flex vertical task-container">
+
+                <% todo_list.forEach((value,index,arr)=>{ %>
+                    <div class="flex no-border border">
+                        <div class="task-checkbox">
+                            <input type="checkbox" name="id" id="<%= value.id %>" value="<%= value.id %>">
+                        </div>
+
+                        <div class="task-desc">
+                            <p class="desc-font"><%= value.description %></p>
+                            <p class="task-date"><i class="fa-regular fa-calendar-days"></i>&nbsp&nbsp<%= value.Date %></p>
+                        </div>
+
+                        <div class="task-category-div flex">
+                            <p><%= value.category %></p>
+                        </div> 
+                    </div>
+                <% }) %>
+            
+            </div>
+
+        </div>
+  
+    </form>
+
+    
+
+
+    <script src="/js/script.js"></script>
+
+
+</body>
+</html>

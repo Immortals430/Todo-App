@@ -1,0 +1,19 @@
+{
+  "name": "to_do_list",
+  "version": "1.0.0",
+  "description": "coding_ninjas_major_project_1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "to_do_list_app"
+  ],
+  "author": "vishal",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.4"
+  }
+}
